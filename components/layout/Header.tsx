@@ -38,9 +38,12 @@ export default function Header() {
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg shadow-emerald-500/30 group-hover:scale-105 transition-transform duration-200">
               <span className="text-lg">⚽</span>
             </div>
-            <div className="hidden sm:block">
-              <span className="text-lg font-bold text-white tracking-tight">lilK</span>
-              <span className="text-lg font-bold text-emerald-400 tracking-tight"> football</span>
+            <div className="hidden sm:flex flex-col items-start leading-none">
+              <div className="flex items-baseline gap-1">
+                <span className="text-lg font-black text-white tracking-tight">lilK</span>
+                <span className="text-lg font-black text-emerald-400 tracking-tight">football</span>
+              </div>
+              <span className="text-[7px] font-semibold tracking-[0.22em] text-white/25 uppercase mt-0.5 ml-0.5">From514</span>
             </div>
           </Link>
 

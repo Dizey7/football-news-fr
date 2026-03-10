@@ -6,27 +6,28 @@ import HeroBreaking from '@/components/sections/HeroBreaking';
 import SectionHeader from '@/components/sections/SectionHeader';
 import LiveScoreBar from '@/components/sections/LiveScoreBar';
 import TrendingTicker from '@/components/sections/TrendingTicker';
-import { ARTICLES, TRANSFERS, MATCHES } from '@/lib/mock-data';
+import { TRANSFERS, MATCHES } from '@/lib/mock-data';
+import { fetchRealTimeNews } from '@/lib/rss';
 
-export default function HomePage() {
-  const breakingArticle = ARTICLES.find((a) => a.isBreaking) ?? ARTICLES[0];
-  const latestArticles = ARTICLES.slice(0, 6);
-  const popularArticles = ARTICLES.filter((a) => a.isPopular).slice(0, 4);
-  const trendingArticles = ARTICLES.filter((a) => a.isTrending).slice(0, 4);
+export const revalidate = 180;
+
+export default async function HomePage() {
+  const articles = await fetchRealTimeNews();
+
+  const breakingArticle = articles.find((a) => a.isBreaking) ?? articles[0];
+  const latestArticles = articles.slice(0, 6);
+  const popularArticles = articles.filter((a) => a.isPopular).slice(0, 4);
+  const trendingArticles = articles.filter((a) => a.isTrending).slice(0, 4);
   const recentTransfers = TRANSFERS.slice(0, 3);
 
   return (
     <div className="min-h-screen space-y-10">
-      {/* Live score banner */}
       <LiveScoreBar matches={MATCHES} />
 
-      {/* Hero breaking news */}
-      <HeroBreaking article={breakingArticle} />
+      {breakingArticle && <HeroBreaking article={breakingArticle} />}
 
-      {/* Trending ticker */}
       <TrendingTicker />
 
-      {/* Dernières actualités */}
       <section>
         <SectionHeader
           title="Dernières actualités"
@@ -41,9 +42,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Two columns: Popular + Trending */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Actualités populaires */}
         <section>
           <SectionHeader
             title="Actualités populaires"
@@ -58,7 +57,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Tendances du moment */}
         <section>
           <SectionHeader
             title="Tendances du moment"
@@ -74,7 +72,6 @@ export default function HomePage() {
         </section>
       </div>
 
-      {/* Transferts récents */}
       <section>
         <SectionHeader
           title="Transferts récents"
@@ -90,7 +87,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Matchs en direct & à venir */}
       <section>
         <SectionHeader
           title="Matchs"
