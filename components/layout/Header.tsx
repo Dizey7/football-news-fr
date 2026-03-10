@@ -39,8 +39,8 @@ export default function Header() {
               <span className="text-lg">⚽</span>
             </div>
             <div className="hidden sm:block">
-              <span className="text-lg font-bold text-white tracking-tight">Foot</span>
-              <span className="text-lg font-bold text-emerald-400 tracking-tight">DZ</span>
+              <span className="text-lg font-bold text-white tracking-tight">lilK</span>
+              <span className="text-lg font-bold text-emerald-400 tracking-tight"> football</span>
             </div>
           </Link>
 

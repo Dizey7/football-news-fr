@@ -5,8 +5,8 @@ import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: 'FootDZ — Actualités Football en Français',
-    template: '%s | FootDZ',
+    default: 'lilK football — Actualités Football en Français',
+    template: '%s | lilK football',
   },
   description:
     'Votre source premium d\'actualités football en français. Transferts, matchs, équipe nationale d\'Algérie, Champions League et tous les grands championnats.',
@@ -21,17 +21,17 @@ export const metadata: Metadata = {
     'fennecs',
     'mercato',
   ],
-  authors: [{ name: 'FootDZ' }],
+  authors: [{ name: 'lilK football' }],
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    siteName: 'FootDZ',
-    title: 'FootDZ — Actualités Football en Français',
+    siteName: 'lilK football',
+    title: 'lilK football — Actualités Football en Français',
     description: 'Toutes les actualités football, transferts, matchs et équipe nationale d\'Algérie.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FootDZ',
+    title: 'lilK football',
     description: 'Actualités football premium en français',
   },
   robots: {
